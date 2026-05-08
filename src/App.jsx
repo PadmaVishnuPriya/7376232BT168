@@ -34,7 +34,6 @@ function App() {
       if (item.id === id) {
         return { ...item, isRead: true };
       }
-
       return item;
     });
 
@@ -54,7 +53,7 @@ function App() {
     <div className="app">
       <header className="header">
         <h1>Notification System</h1>
-        <p>Manage user notifications in a simple dashboard</p>
+        <p>Manage and track user notifications in one place</p>
       </header>
 
       <section className="stats">
@@ -81,14 +80,14 @@ function App() {
           <label>Title</label>
           <input
             type="text"
-            placeholder="Enter title"
+            placeholder="Enter notification title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
 
           <label>Message</label>
           <textarea
-            placeholder="Enter message"
+            placeholder="Enter notification message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           ></textarea>
@@ -129,13 +128,11 @@ function App() {
 
                 <div className="card-actions">
                   {!item.isRead && (
-                    <button type="button" onClick={() => markAsRead(item.id)}>
+                    <button onClick={() => markAsRead(item.id)}>
                       Mark as Read
                     </button>
                   )}
-
                   <button
-                    type="button"
                     className="delete-btn"
                     onClick={() => deleteNotification(item.id)}
                   >
